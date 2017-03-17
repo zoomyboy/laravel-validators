@@ -1,0 +1,17 @@
+{
+    "name": "zoomyboy/laravel-validators",
+    "description": "Custom Validators for the Laravel-Framework",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Zoomyboy",
+            "email": "pille@zoomyboy.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zoomyboy\\LaravelValidators\\": "src/"
+        }
+    },
+    "require": {}
+}
