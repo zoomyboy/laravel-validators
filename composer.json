@@ -13,5 +13,7 @@
             "Zoomyboy\\LaravelValidators\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "zoomyboy/php-ssh": "^1.0"
+    }
 }
