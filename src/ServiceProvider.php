@@ -22,14 +22,10 @@ class ServiceProvider extends GlobalServiceProvider {
 		Validator::extend('sshlogin', function($attribute, $value, $parameters, $validator) {
 			$data = $validator->getData();
 			$user = $data[$parameters[0]];
-			$file = $data[$parameters[1]];
+			$method = 'with' . ucfirst($data[$parameters[1]]);
+			$auth = $data[$parameters[2]];
 
-			try {
-				Ssh::connect($value, $user, $file);
-				return true;
-			} catch (ConnectionFailException $e) {
-				return false;
-			}
+			return Ssh::auth($value, $user)->{$method}($auth)->check();
 		});
 		
 		$this->replace('fileexists');
