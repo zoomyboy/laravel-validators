@@ -4,7 +4,7 @@ namespace Zoomyboy\LaravelValidators;
 
 use Illuminate\Support\ServiceProvider as GlobalServiceProvider;
 use Zoomyboy\PhpSsh\Exceptions\ConnectionFailException;
-use Zoomyboy\PhpSsh\Ssh;
+use Zoomyboy\PhpSsh\SshConnection;
 use Validator;
 
 
@@ -25,7 +25,7 @@ class ServiceProvider extends GlobalServiceProvider {
 			$method = 'with' . ucfirst($data[$parameters[1]]);
 			$auth = $data[$parameters[2]];
 
-			return Ssh::auth($value, $user)->{$method}($auth)->check();
+			return SshConnection::auth($value, $user)->{$method}($auth)->check();
 		});
 		
 		$this->replace('fileexists');
